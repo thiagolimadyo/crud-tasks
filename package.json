@@ -1,0 +1,22 @@
+{
+  "name": "crud-tasks",
+  "version": "1.0.0",
+  "description": "Desafio 1 - Rocketseat - CRUD de Tarefas - Fundamentos do Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagolimadyo/crud-tasks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/thiagolimadyo/crud-tasks/issues"
+  },
+  "homepage": "https://github.com/thiagolimadyo/crud-tasks#readme"
+}
