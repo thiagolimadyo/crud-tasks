@@ -3,6 +3,5 @@ export default function buildRoutePath(path) {
   const result = path.replace(pattern, `(?<id>[a-zA-Z0-9_-]+)`);
   const er = new RegExp(`^${result}$`);
 
-  console.log(er);
   return er;
 }

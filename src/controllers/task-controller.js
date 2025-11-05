@@ -29,20 +29,34 @@ export default class TaskController {
       updated_at: null,
     };
 
-    await database.insert("tasks", task);
+    await database.create("tasks", task);
 
     res.writeHead(201).end();
   }
 
-  static async putTask(req, res) {
-    res.end("PUT");
+  static async updateTask(req, res) {
+    const { id } = req.param;
+    const { title, description } = req.body;
+
+    const result = await database.update("tasks", id, {
+      title,
+      description,
+    });
+
+    res.writeHead(result ? 200 : 404).end();
   }
 
-  static deleteTask(req, res) {
-    res.end("DELETE");
+  static async deleteTask(req, res) {
+    const { id } = req.param;
+    const result = await database.delete("tasks", id);
+
+    res.writeHead(result ? 200 : 404).end();
   }
 
-  static patchTask(req, res) {
-    res.end("PATCH");
+  static async updateCompleteTask(req, res) {
+    const { id } = req.param;
+    const result = await database.updateComplete("tasks", id);
+
+    res.writeHead(result ? 200 : 404).end();
   }
 }

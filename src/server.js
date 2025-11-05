@@ -16,10 +16,8 @@ server.on("request", async (req, res) => {
 
   if (route) {
     try {
-      console.log(url.match(route.url));
       const routeParams = url.match(route.url);
-      const { id } = routeParams.groups.id;
-      req.param = id;
+      req.param = routeParams.groups;
     } catch {
       req.param = null;
     }
@@ -30,4 +28,4 @@ server.on("request", async (req, res) => {
   res.writeHead(404).end("404 - Not Found");
 });
 
-server.listen(3333, () => console.log("Server started at port #3333"));
+server.listen(3333, () => console.log("Server started at port 3333"));

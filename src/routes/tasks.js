@@ -5,28 +5,28 @@ import TaskController from "../controllers/task-controller.js";
 
 export const routes = [
   {
-    method: "GET",
     url: buildRoutePath("/tasks"),
+    method: "GET",
     handler: TaskController.getTasks,
   },
   {
-    method: "POST",
     url: buildRoutePath("/tasks"),
+    method: "POST",
     handler: TaskController.createTask,
   },
   {
-    method: "PUT",
     url: buildRoutePath("/tasks/:id"),
-    handler: TaskController.putTask,
+    method: "PUT",
+    handler: TaskController.updateTask,
   },
   {
-    method: "DELETE",
     url: buildRoutePath("/tasks/:id"),
+    method: "DELETE",
     handler: TaskController.deleteTask,
   },
   {
-    method: "PATCH",
     url: buildRoutePath("/tasks/:id/complete"),
-    handler: TaskController.patchTask,
+    method: "PATCH",
+    handler: TaskController.updateCompleteTask,
   },
 ];
