@@ -4,7 +4,7 @@ import fs from "node:fs";
 const filePath = new URL("../../tasks.csv", import.meta.url);
 
 const importCSV = async () => {
-  const records = [];
+  //   const records = [];
   const parser = fs
     .createReadStream(filePath)
     .setEncoding("utf8")
@@ -29,6 +29,7 @@ const importCSV = async () => {
 };
 
 (async () => {
-  const records = await importCSV();
+  //   const records = await importCSV();
+  await importCSV();
   //   console.info(records);
 })();
