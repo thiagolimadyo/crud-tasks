@@ -1,7 +1,7 @@
-export default function buildRoutePath(path) {
+export default function buildRoutePath(url) {
   const pattern = /:([a-zA-Z0-9_-]+)/;
-  const result = path.replace(pattern, `(?<id>[a-zA-Z0-9_-]+)`);
-  const er = new RegExp(`^${result}$`);
+  const pathWithParams = url.replace(pattern, `(?<id>[a-zA-Z0-9_-]+)`);
+  const pathRegex = new RegExp(`^${pathWithParams}(?<query>\\?(.*))?$`);
 
-  return er;
+  return pathRegex;
 }

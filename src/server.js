@@ -7,6 +7,8 @@ server.on("request", async (req, res) => {
   const { url, method } = req;
 
   await json(req, res);
+  // await importCSV();
+  // console.log("[server]", result.toString());
 
   const route = routes.find((route) => {
     if (method === route.method && url.search(route.url) !== -1) {
@@ -17,7 +19,9 @@ server.on("request", async (req, res) => {
   if (route) {
     try {
       const routeParams = url.match(route.url);
-      req.param = routeParams.groups;
+      const { query, ...params } = routeParams.groups;
+      req.params = params;
+      req.query = query ?? null;
     } catch {
       req.param = null;
     }

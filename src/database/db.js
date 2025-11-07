@@ -22,8 +22,16 @@ class Database {
     }
   }
 
-  select(table) {
-    const data = this.#db[table] ?? [];
+  select(table, query = null) {
+    if (query) {
+      const data = this.#db[table].filter(
+        (task) =>
+          task.title.toLowerCase().includes(query.search.toLowerCase()) ||
+          task.description.toLowerCase().includes(query.search.toLowerCase())
+      );
+      return data;
+    }
+    const data = this.#db[table] ?? null;
     return data;
   }
 

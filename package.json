@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/thiagolimadyo/crud-tasks/issues"
   },
-  "homepage": "https://github.com/thiagolimadyo/crud-tasks#readme"
+  "homepage": "https://github.com/thiagolimadyo/crud-tasks#readme",
+  "dependencies": {
+    "csv-parse": "^6.1.0"
+  }
 }
